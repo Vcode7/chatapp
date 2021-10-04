@@ -1,5 +1,5 @@
 
-const socket = io('https://');
+const socket = io('https://a522-157-45-77-0.ngrok.io');
 // Get DOM elements in respective Js variables
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
