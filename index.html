@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> skyChat - Realtime Node Socket.io Chat App</title>
+    <script defer src="https://warm-plateau-07321.herokuapp.com/socket.io/socket.io.js"></script>
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tooltip {
+            position: absolute;
+            left: -1000px;
+            bottom: -7vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <nav class="h1">
+
+            <button class="nav-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+            <h2>
+                Welcome to skychat
+            </h2>
+        </nav>
+        <div class="container">
+             
+            <div id="botto"></div>
+        </div>
+        <div class="send">
+            <div class="button emoji-btn" onclick="toggle()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-emoji-laughing" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M12.331 9.5a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zM7 6.5c0 .828-.448 0-1 0s-1 .828-1 0S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 0-1 0s-1 .828-1 0S9.448 5 10 5s1 .672 1 1.5z" />
+                </svg>
+            </div>
+            <div class="tooltip">
+                <emoji-picker></emoji-picker>
+            </div>
+
+            <form action="#" id="send-container">
+                <input type="text" onclick="close22()" name="messageInp" placeholder="Type message here"
+                    id="messageInp">
+
+                    <a href="#botto" id="bottom-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        		class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+                        	<path fill-rule="evenodd"
+                            	d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        	<path fill-rule="evenodd"
+                            	d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+               		</a>
+                        <button class="btn" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                class="bi bi-cursor-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
+                            </svg>
+                   		</button>
+                </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- ** Don't forget to Add jQuery here ** -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
+
+    <script>
+        const button1 = document.querySelector('.button')
+        const tooltip1 = document.querySelector('.tooltip')
+        const messageContainer1 = document.querySelector('.container')
+        const send1 = document.querySelector('.send')
+        const body1 = document.querySelector('body')
+        const emoji = document.querySelector('emoji-picker')
+        const botto = document.querySelector('#botto')
+
+
+        function toggle() {
+            if (tooltip1.style.left == '-1000px') {
+                setTimeout(() => {
+                    tooltip1.style.left = '0px';
+                }, 200);
+                messageContainer1.style.height = '37.6vh';
+                console.log('open')
+            }
+            else {
+                console.log('-7vh')
+                tooltip1.style.left = '-1000px';
+                messageContainer1.style.height = '70vh';
+            }
+        }
+        function close22() {
+            console.log('close lanched');
+            tooltip1.style.left = '-1000px';
+            messageContainer1.style.height = '70vh';
+        }
+
+    </script>
+</body>
+
+</html>
