@@ -1,5 +1,5 @@
 
-const socket = io('https://a522-157-45-77-0.ngrok.io');
+const socket = io('https://chatserver-v1.herokuapp.com');
 // Get DOM elements in respective Js variables
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
